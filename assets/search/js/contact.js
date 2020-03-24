@@ -32,7 +32,14 @@
         console.log(form_data.substring(8));
         $.ajax({
             type: 'GET',
+            // url: "http://18.219.210.136:5000/country/"+form_data.substring(8),
             url: "http://127.0.0.1:5000/country/"+form_data.substring(8),
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            contentType: 'application/json; charset=utf-8',
+            // headers: { 'Access-Control-Allow-Origin':'*' }, 
             success : function(datas){
                 console.log(datas['date'][0].split('00:00:00')[0]);
                 var i;
