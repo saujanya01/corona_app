@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/search/css/main.css" type="text/css">
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/chart/css/main.css">
+
+    <title>Corona Curve</title>
+  </head>
+  <body style=" align-items: center;">
+    <h1>Corona Curve</h1>
+    <div id="w">
+      <div id="content">
+        <h1>Select A country</h1>
+        <div id="searchfield">
+          <form id="search">
+            <input type="text" name="country" class="biginput" id="autocomplete">
+            <div class="col-12 mt-4">
+              <input name="submit" id="send" type="submit" class=" btn btn-hero btn-circled" value="Show Graph">
+              <br><br>
+              Websites for more info on COVID-19<br>
+              <a href="https://www.mohfw.gov.in/">Ministry of Health, India</a><br>
+              <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/">WHO (World Heath Organization)</a>
+            </div>
+          </form>
+        </div><!-- @end #searchfield -->
+      </div><!-- @end #content -->
+    </div>
+    <script src="./assets/search/js/search.js"></script>
+    <script src="./assets/search/js/contact.js"></script>
+    <div class="graph" >
+      <figure class="highcharts-figure" style="align-items: center;">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Line chart showing trends in European Centre for Disease Prevention and Control
+            dataset.
+        </p>
+      </figure>
+    </div>
+    <footer class="footer">
+      <div class="footer-in">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            Made with &hearts; by Saujanya Nath Tiwari
+          </div>
+          <div class="col-lg-12 col-sm -12">
+            <a class="icon" href="https://github.com/saujanya01/"><i class="fab fa-github"></i></a>
+            <a class="icon" href="mailto:saujanyatiwari455@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a class="icon" href="https://www.linkedin.com/in/saujanya01/"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
