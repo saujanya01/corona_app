@@ -1,7 +1,7 @@
 (function ($) {
     'use strict';
 
-    var form = $('#search'),
+    var form = $('#search'),form1=$('#compare')
         form_data,d;
 
     form.submit(function (e) {
@@ -9,7 +9,7 @@
         form_data = $(this).serialize();
         $.ajax({
             type: 'GET',
-            url: "http://18.219.210.136:5000/country/"+form_data.substring(8),
+            url: "http://127.0.0.1:5000/country/"+form_data.substring(8),
             xhrFields: {
                 withCredentials: true
             },
@@ -22,6 +22,29 @@
                     datas['date'][i]=datas['date'][i].split('00:00:00')[0];
                 }
                 value(datas,form_data.substring(8))
+            }
+        });
+    });
+
+    form1.submit(function (e) {
+        e.preventDefault();
+        form_data = $(this).serialize();
+        console.log(form_data);
+        $.ajax({
+            type: 'GET',
+            url: "http://127.0.0.1:5000/compare/"+form_data,
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            contentType: 'application/json; charset=utf-8', 
+            success : function(datas){
+                // var i;
+                // for (i=0;i<datas['date'].length;i++)
+                // {
+                //     datas['date'][i]=datas['date'][i].split('00:00:00')[0];
+                // }
+                // value(datas,form_data.substring(8))
             }
         });
     });
