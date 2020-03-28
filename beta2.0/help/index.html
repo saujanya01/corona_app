@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/main.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+    <title>Corona-Analytics</title>
+</head>
+<body class="main-body">
+  <!-- nav bar begins -->
+  <section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="./../">CORONA ANALYTICS</a>
+      </div>
+      <nav>
+        <div class="nav-mobile">
+          <a id="nav-toggle" href="#!"><span></span></a>
+        </div>
+        <ul class="nav-list">
+          <!-- Setting the links to #! will ensure that no action takes place on click. -->
+          <li><a href="./../">WORLD</a></li>
+          <li><a href="./../country/">COUNTRY</a></li>
+          <li><a href="./../compare/">COMPARE COUNTRIES</a>  </li>
+          <li><a href="./">HELPLINE</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <!-- nav bar ends -->
+  <section class="main_body">
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="alert alert-info" style="text-align: center;">
+          <h4 class="alert-heading">TOTAL CASES<br>WORLDWIDE</h4>
+          <hr>
+          <h3 class="num" id="total">
+          </h3>
+        </div>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+    <div class="row" style="padding-top: 100px;">
+      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
+        <div class="alert alert-warning" style="text-align: center;">
+          <h4 class="alert-heading">ACTIVE CASES</h4>
+          <hr>
+          <h3 class="num" id="active">
+          </h3>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
+        <div class="alert alert-danger" style="text-align: center;">
+          <h4 class="alert-heading">DEATHS</h4>
+          <hr>
+          <h3 class="num" id="death">
+          </h3>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
+        <div class="alert alert-success" style="text-align: center;">
+          <h4 class="alert-heading">RECOVERED</h4>
+          <hr>
+          <h3 class="num" id="recovered">
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="./assets/js/main.js"></script>
+  <script src="./../assets/js/navbar.js"></script>
+  <footer class="footer">
+    <div class="footer-in">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12">
+          Made with &hearts; by Saujanya Nath Tiwari
+        </div>
+        <div class="col-lg-12 col-sm -12">
+          <a class="icon" href="https://github.com/saujanya01/"><i class="fab fa-github"></i></a>
+          <a class="icon" href="mailto:saujanyatiwari455@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a class="icon" href="https://www.linkedin.com/in/saujanya01/"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
