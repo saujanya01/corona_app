@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-df = pd.read_excel("https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-2020-03-27.xlsx")
+df = pd.read_excel("https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-2020-03-29.xlsx")
 df = df.rename({'countriesAndTerritories':'location'},axis="columns")
 
 def cumulative(l):
@@ -20,18 +20,6 @@ def after_request(response):
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   return response
 
-@app.route('/countries')
-@cross_origin(supports_credentials=True)
-def country_list():
-    l = df.location.unique()
-    geoid=[]
-    cntcode=[]
-    for i in range(0,len(l)):
-        cntcode.append(df[df['location']==l[i]]['countryterritoryCode'].tolist()[0])
-        geoid.append(df[df['location']==l[i]]['geoId'].tolist()[0])
-    l = l.tolist()
-    return jsonify({"country":l,"cntcode":cntcode,"geoid":geoid})
-
 @app.route('/country/<string:name>',methods=['GET'])
 @cross_origin(supports_credentials=True)
 def data(name):
@@ -41,7 +29,19 @@ def data(name):
     deaths = df[df['location']==str(name)]['deaths'].tolist()[::-1]
     case = cumulative(cases)
     death = cumulative(deaths)
-    return jsonify({'date':date,'cases':case,'deaths':death})
+    if (0 in case[::-1]):
+        i = len(case)-case[::-1].index(0)
+        date = date[i-1:]
+        case = case[i-1:]
+        death = death[i-1:]
+    l = df.location.unique()
+    geoid=[]
+    cntcode=[]
+    for i in range(0,len(l)):
+        cntcode.append(df[df['location']==l[i]]['countryterritoryCode'].tolist()[0])
+        geoid.append(df[df['location']==l[i]]['geoId'].tolist()[0])
+    l = l.tolist()
+    return jsonify({'date':date,'cases':case,'deaths':death,'iso2':geoid[l.index(name)],'iso3':cntcode[l.index(name)]})
 
 @app.route('/world',)
 @cross_origin(supports_credentials=True)

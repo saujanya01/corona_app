@@ -1,8 +1,8 @@
 (function ($) {
     'use strict';
 
-    var form = $('#search'),form1=$('#compare')
-        form_data,d;
+    var form = $('#search'),
+        form_data;
 
     form.submit(function (e) {
         e.preventDefault();
@@ -21,12 +21,28 @@
                 {
                     datas['date'][i]=datas['date'][i].split('00:00:00')[0];
                 }
+                document.getElementById("just-show").innerHTML="Line chart showing trends in European Centre for Disease Prevention and Control dataset."
+                var iso2 = datas['iso2'];
+                var iso3 = datas['iso3'];
+                $.getJSON('https://corona.lmao.ninja/countries/'+iso2,function(data){
+                    // document.getElementById("cntname").innerHTML='Country : '+data['countryInfo']['country'].toUpperCase();
+                    // document.getElementById("flagurl").src=data['countryInfo']['flag']
+                    document.getElementById("counts").style.display="block";
+                    document.getElementById("active").innerText=parseInt(data['active'])
+                    document.getElementById("total").innerHTML=data['cases']
+                    document.getElementById("death").innerHTML=data['deaths']
+                    document.getElementById("recovered").innerHTML=data['recovered']
+                    $(".num").counterUp({time:1000});
+                    var st = '<img id="flagurl" src="'+data['countryInfo']['flag']+'">';
+                    document.getElementById("cntname").innerHTML='Country : '+data['countryInfo']['country'].toUpperCase()+' '+st;
+                });
                 value(datas,form_data.substring(8))
             }
         });
     });
     
 })(jQuery);
+
 
 function value(datas,cnt){
     Highcharts.chart('container', {

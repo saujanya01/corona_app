@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/main.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/search.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="./assets/css/search.css">
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="./../assets/css/graph.css">
     <title>Corona-Analytics</title>
 </head>
   <!-- nav bar begins -->
@@ -44,22 +50,29 @@
         <form id="search">
           <input type="text" name="country" class="biginput" id="autocomplete">
           <div class="col-12 mt-4">
-            <input name="submit" id="send" type="submit" class=" btn btn-hero btn-circled" value="Show Graph">
-            <br><br>
-            Websites for more info on COVID-19<br>
-            <a href="https://www.mohfw.gov.in/">Ministry of Health, India</a><br>
-            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/">WHO (World Heath Organization)</a>
+            <input name="submit" id="send" type="submit" class=" btn btn-hero btn-circled" value="Show Details">
           </div>
         </form>
       </div><!-- @end #searchfield -->
     </div><!-- @end #content -->
   </div>
-  <section class="counts">
+  <section id="counts">
     <div class="row">
       <div class="col-lg-4"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="col-lg-4 col-sm-12" id="flag">
+        <div class="alert alert-success" id="chbg" style="text-align: center;">
+          <h4 class="alert-success" id="cntname"><img src="" id="flagurl"></h4>
+        </div>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 col-md-6 col-sm-120" style="padding-left: 10%; padding-right: 10%;">
         <div class="alert alert-info" style="text-align: center;">
-          <h4 class="alert-heading">TOTAL CASES<br>WORLDWIDE</h4>
+          <h4 class="alert-heading">
+            TOTAL CASES
+          </h4>
           <hr>
           <h3 class="num" id="total">
           </h3>
@@ -67,8 +80,8 @@
       </div>
       <div class="col-lg-4"></div>
     </div>
-    <div class="row" style="padding-top: 100px;">
-      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12" style="padding-left: 5%; padding-right: 5%;">
         <div class="alert alert-warning" style="text-align: center;">
           <h4 class="alert-heading">ACTIVE CASES</h4>
           <hr>
@@ -76,7 +89,7 @@
           </h3>
         </div>
       </div>
-      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
+      <div class="col-lg-4 col-sm-12" style="padding-left: 5%; padding-right: 5%;">
         <div class="alert alert-danger" style="text-align: center;">
           <h4 class="alert-heading">DEATHS</h4>
           <hr>
@@ -84,7 +97,7 @@
           </h3>
         </div>
       </div>
-      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
+      <div class="col-lg-4 col-sm-12" style="padding-left: 5%; padding-right: 5%;">
         <div class="alert alert-success" style="text-align: center;">
           <h4 class="alert-heading">RECOVERED</h4>
           <hr>
@@ -94,9 +107,17 @@
       </div>
     </div>
   </section>
-  <script src="./assets/js/main.js"></script>
+  <!-- <script src="./assets/js/main.js"></script> -->
   <script src="./../assets/js/navbar.js"></script>
   <script src="./assets/js/search.js"></script>
+  <script src="./assets/js/contact.js"></script>
+  <div class="graph" >
+    <figure class="highcharts-figure" style="align-items: center;">
+      <div id="container"></div>
+      <p class="highcharts-description" id="just-show">
+      </p>
+    </figure>
+  </div>
   <footer class="footer">
     <div class="footer-in">
       <div class="row">

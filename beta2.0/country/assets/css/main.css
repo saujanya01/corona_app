@@ -165,8 +165,8 @@ nav ul li ul li a {
 
 /* to be added to all pages */
 
-.counts {
-  padding-top: 100px;
+#counts {
+  /* padding-top: 100px; */
   padding-left: 30px;
   padding-right: 30px;
   display: none;
@@ -185,4 +185,28 @@ nav ul li ul li a {
 
 .footer-in{
   padding: 5px;
+}
+
+#flag {
+  padding: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
+#flagurl {
+  height: 20px;
+  width: 30px;
+}
+
+#chbg {
+  color: #000000;
+  background-color: #efefef;
+  border-color: #0078ff;
+}
+
+#cntname {
+  color: #000000;
+  background-color: #efefef;
+  border-color: #0078ff;
 }
