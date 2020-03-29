@@ -46,13 +46,18 @@
 
 function value(datas,cnt){
     Highcharts.chart('container', {
-
+        chart: {
+            height: 600
+        },
+        credits: {
+            enabled: false
+        },
         title: {
             text: 'Graph of '+cnt
         },
     
         subtitle: {
-            text: 'Source: European Centre for Disease Prevention and Control<br>Time = 00:00:00 GMT'
+            text: 'Source: European Centre for Disease Prevention and Control<br>Time = 00:00:00 GMT<br><p style="color:blue"> Click on particular legend to make that plot disappear</p>'
         },
     
         yAxis: {

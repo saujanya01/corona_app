@@ -9,20 +9,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 df = pd.read_excel("https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-2020-03-29.xlsx")
 df = df.rename({'countriesAndTerritories':'location'},axis="columns")
 
-def cumulative(l):
-    f=[]
-    f=[sum(l[0:i+1]) for i in range(0,len(l))]
-    return (f)
-
-@app.after_request
-def after_request(response):
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-  return response
-
-@app.route('/country/<string:name>',methods=['GET'])
-@cross_origin(supports_credentials=True)
-def data(name):
+def details(x):
+    name = x
     dates = df[df['location']==str(name)]['dateRep'].tolist()[::-1]
     date = [i.date() for i in dates]
     cases = df[df['location']==str(name)]['cases'].tolist()[::-1]
@@ -41,7 +29,23 @@ def data(name):
         cntcode.append(df[df['location']==l[i]]['countryterritoryCode'].tolist()[0])
         geoid.append(df[df['location']==l[i]]['geoId'].tolist()[0])
     l = l.tolist()
-    return jsonify({'date':date,'cases':case,'deaths':death,'iso2':geoid[l.index(name)],'iso3':cntcode[l.index(name)]})
+    return {'date':date,'cases':case,'deaths':death,'iso2':geoid[l.index(name)],'iso3':cntcode[l.index(name)]}
+
+def cumulative(l):
+    f=[]
+    f=[sum(l[0:i+1]) for i in range(0,len(l))]
+    return (f)
+
+@app.after_request
+def after_request(response):
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  return response
+
+@app.route('/country/<string:name>',methods=['GET'])
+@cross_origin(supports_credentials=True)
+def data(name):
+    return jsonify(details(name))
 
 @app.route('/world',)
 @cross_origin(supports_credentials=True)
