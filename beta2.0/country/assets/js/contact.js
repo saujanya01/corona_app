@@ -9,7 +9,7 @@
         form_data = $(this).serialize();
         $.ajax({
             type: 'GET',
-            url: "http://127.0.0.1:5000/country/"+form_data.substring(8),
+            url: "http://18.219.210.136:5000/country/"+form_data.substring(8),
             xhrFields: {
                 withCredentials: true
             },

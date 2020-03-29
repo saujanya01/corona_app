@@ -15,7 +15,7 @@
         console.log(form_data);
         $.ajax({
             type: 'GET',
-            url: "http://127.0.0.1:5000/country/"+cnt1,
+            url: "http://18.219.210.136:5000/country/"+cnt1,
             xhrFields: {
                 withCredentials: true
             },
@@ -30,7 +30,7 @@
                 d1=datas
                 $.ajax({
                     type: 'GET',
-                    url: "http://127.0.0.1:5000/country/"+cnt2,
+                    url: "http://18.219.210.136:5000/country/"+cnt2,
                     xhrFields: {
                         withCredentials: true
                     },

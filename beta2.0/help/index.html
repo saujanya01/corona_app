@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-    <title>Corona-Analytics</title>
+    <title>Helpline</title>
 </head>
 <body class="main-body">
   <!-- nav bar begins -->
@@ -40,40 +40,34 @@
     <div class="row">
       <div class="col-lg-4"></div>
       <div class="col-lg-4 col-md-6 col-sm-12">
-        <div class="alert alert-info" style="text-align: center;">
-          <h4 class="alert-heading">TOTAL CASES<br>WORLDWIDE</h4>
-          <hr>
-          <h3 class="num" id="total">
-          </h3>
+        <div class="alert alert-info" id="one0">
+          <h4 class="alert-heading" id="one1" style="color: black;text-align:center;">HELPFUL LINKS</h4>
+          <hr style="border-top-color:black">
+          <h4>Helpline number for India:</h4>
+          <ul style="list-style-type: circle;">
+            <li>National Helpline Number<br>+91-11-23978046 or 1075</li>
+            <li><a href="https://www.mohfw.gov.in/">Website of Ministry of Health</a></li>
+            <li><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">WHO - corona update</a></li>
+          </ul>
         </div>
       </div>
       <div class="col-lg-4"></div>
     </div>
-    <div class="row" style="padding-top: 100px;">
-      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
-        <div class="alert alert-warning" style="text-align: center;">
-          <h4 class="alert-heading">ACTIVE CASES</h4>
-          <hr>
-          <h3 class="num" id="active">
-          </h3>
+
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="alert alert-warning" id="one0">
+          <h4 class="alert-heading" id="one1" style="color: black;text-align:center;">About this website</h4>
+          <hr style="border-top-color:black">
+          <ul style="list-style-type: circle;">
+            <li>Dataset :<br><a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European Centre for Disease Prevention and Control</a></li>
+            <li><a href="https://github.com/saujanya01/corona_app">Github Link(API details to be updated soon)</a></li>
+            <li><a href="https://github.com/NovelCOVID/API">Some of the API's were used from here  </a></li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
-        <div class="alert alert-danger" style="text-align: center;">
-          <h4 class="alert-heading">DEATHS</h4>
-          <hr>
-          <h3 class="num" id="death">
-          </h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-12" style="padding: 50px;">
-        <div class="alert alert-success" style="text-align: center;">
-          <h4 class="alert-heading">RECOVERED</h4>
-          <hr>
-          <h3 class="num" id="recovered">
-          </h3>
-        </div>
-      </div>
+      <div class="col-lg-4"></div>
     </div>
   </section>
   <script src="./assets/js/main.js"></script>

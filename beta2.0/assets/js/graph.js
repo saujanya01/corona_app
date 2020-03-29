@@ -1,4 +1,4 @@
-$.getJSON('http://127.0.0.1:5000/world',function(data){
+$.getJSON('http://18.219.210.136:5000/world',function(data){
     for (i=0;i<data['cases'].length;i++)
     {
         data['cases'][i]=parseInt(data['cases'][i]);
