@@ -1,0 +1,9 @@
+$.getJSON('https://corona.lmao.ninja/countries/india',function(data){
+document.getElementById("active").innerHTML=data['active']
+document.getElementById("total").innerHTML=data['cases']
+document.getElementById("death").innerHTML=data['deaths']
+document.getElementById("recovered").innerHTML=data['recovered']
+document.getElementById("today_case").innerHTML=data['todayCases']
+document.getElementById("today_death").innerHTML=data['todayDeaths']
+$(".num").counterUp({time:1000});
+});
