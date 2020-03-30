@@ -1,4 +1,4 @@
-$.getJSON('http://18.219.210.136:5000/country/India',function(data){
+$.getJSON('http://18.191.74.90:5000/country/India',function(data){
     for (i=0;i<data['cases'].length;i++)
     {
         data['cases'][i]=parseInt(data['cases'][i]);

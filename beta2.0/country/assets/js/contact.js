@@ -9,7 +9,7 @@
         form_data = $(this).serialize();
         $.ajax({
             type: 'GET',
-            url: "http://18.219.210.136:5000/country/"+form_data.substring(8),
+            url: "http://18.191.74.90:5000/country/"+form_data.substring(8),
             xhrFields: {
                 withCredentials: true
             },
@@ -34,7 +34,7 @@
                     document.getElementById("recovered").innerHTML=data['recovered']
                     $(".num").counterUp({time:1000});
                     var st = '<img id="flagurl" src="'+data['countryInfo']['flag']+'">';
-                    document.getElementById("cntname").innerHTML='Country : '+data['countryInfo']['country'].toUpperCase()+' '+st;
+                    document.getElementById("cntname").innerHTML='Country : '+data['country'].toUpperCase()+' '+st;
                 });
                 value(datas,form_data.substring(8))
             }
