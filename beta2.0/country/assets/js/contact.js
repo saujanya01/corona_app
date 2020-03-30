@@ -24,17 +24,37 @@
                 document.getElementById("just-show").innerHTML="Line chart showing trends in European Centre for Disease Prevention and Control dataset."
                 var iso2 = datas['iso2'];
                 var iso3 = datas['iso3'];
-                $.getJSON('https://corona.lmao.ninja/countries/'+iso2,function(data){
-                    // document.getElementById("cntname").innerHTML='Country : '+data['countryInfo']['country'].toUpperCase();
-                    // document.getElementById("flagurl").src=data['countryInfo']['flag']
-                    document.getElementById("counts").style.display="block";
-                    document.getElementById("active").innerText=parseInt(data['active'])
-                    document.getElementById("total").innerHTML=data['cases']
-                    document.getElementById("death").innerHTML=data['deaths']
-                    document.getElementById("recovered").innerHTML=data['recovered']
-                    $(".num").counterUp({time:1000});
-                    var st = '<img id="flagurl" src="'+data['countryInfo']['flag']+'">';
-                    document.getElementById("cntname").innerHTML='Country : '+data['country'].toUpperCase()+' '+st;
+                // $.getJSON('https://corona.lmao.ninja/countries/'+iso2,function(data){
+                //     // document.getElementById("cntname").innerHTML='Country : '+data['countryInfo']['country'].toUpperCase();
+                //     // document.getElementById("flagurl").src=data['countryInfo']['flag']
+                //     document.getElementById("counts").style.display="block";
+                //     document.getElementById("active").innerText=parseInt(data['active'])
+                //     document.getElementById("total").innerHTML=data['cases']
+                //     document.getElementById("death").innerHTML=data['deaths']
+                //     document.getElementById("recovered").innerHTML=data['recovered']
+                //     //$(".num").counterUp({time:1000});
+                //     var st = '<img id="flagurl" src="'+data['countryInfo']['flag']+'">';
+                //     document.getElementById("cntname").innerHTML='Country : '+data['country'].toUpperCase()+' '+st;
+                // });
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://corona.lmao.ninja/countries/'+iso2,
+                    // xhrFields: {
+                    //     withCredentials: true
+                    // },
+                    // crossDomain: true,
+                    // contentType: 'application/json; charset=utf-8', 
+                    success : function(data){
+                        console.log("hi")
+                        document.getElementById("counts").style.display="block";
+                        document.getElementById("active").innerText=parseInt(data['active'])
+                        document.getElementById("total").innerHTML=data['cases']
+                        document.getElementById("death").innerHTML=data['deaths']
+                        document.getElementById("recovered").innerHTML=data['recovered']
+                        // $(".num").counterUp({time:1000});
+                        var st = '<img id="flagurl" src="'+data['countryInfo']['flag']+'">';
+                        document.getElementById("cntname").innerHTML='Country : '+data['country'].toUpperCase()+' '+st;
+                    }
                 });
                 value(datas,form_data.substring(8))
             }

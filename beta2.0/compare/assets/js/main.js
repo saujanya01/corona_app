@@ -15,7 +15,7 @@
         console.log(form_data);
         $.ajax({
             type: 'GET',
-            url: "http://18.191.74.90:5000/country/"+cnt1,
+            url: "http://127.0.0.1:5000/country/"+cnt1,
             xhrFields: {
                 withCredentials: true
             },
@@ -30,7 +30,7 @@
                 d1=datas
                 $.ajax({
                     type: 'GET',
-                    url: "http://18.191.74.90:5000/country/"+cnt2,
+                    url: "http://127.0.0.1:5000/country/"+cnt2,
                     xhrFields: {
                         withCredentials: true
                     },
@@ -46,10 +46,20 @@
                         if (d2['date'].length>d1['date'].length)
                         {
                             date=d2['date'];
+                            for (var i=0;i<(d2['date'].length-d1['date'].length);i++)
+                            {
+                                d1['cases'].unshift(null);
+                                d1['deaths'].unshift(null);
+                            }
                         }
                         else
                         {
                             date=d1['date'];
+                            for (var i=0;i<(d1['date'].length-d2['date'].length);i++)
+                            {
+                                d2['cases'].unshift(null);
+                                d2['deaths'].unshift(null);
+                            }
                         }
                         value(date,d1,d2,cnt1,cnt2)
                     }

@@ -5,5 +5,5 @@ document.getElementById("death").innerHTML=data['deaths']
 document.getElementById("recovered").innerHTML=data['recovered']
 document.getElementById("today_case").innerHTML=data['todayCases']
 document.getElementById("today_death").innerHTML=data['todayDeaths']
-$(".num").counterUp({time:1000});
+//$(".num").counterUp({time:1000});
 });
