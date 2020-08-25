@@ -38,7 +38,7 @@
                 // });
                 $.ajax({
                     type: 'GET',
-                    url: 'https://corona.lmao.ninja/countries/'+iso2,
+                    url: 'https://corona.lmao.ninja/v2/countries/'+iso2,
                     // xhrFields: {
                     //     withCredentials: true
                     // },

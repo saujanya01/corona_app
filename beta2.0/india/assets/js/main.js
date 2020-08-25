@@ -1,4 +1,4 @@
-$.getJSON('https://corona.lmao.ninja/countries/india',function(data){
+$.getJSON('https://corona.lmao.ninja/v2/countries/india',function(data){
 document.getElementById("active").innerHTML=data['active']
 document.getElementById("total").innerHTML=data['cases']
 document.getElementById("death").innerHTML=data['deaths']

@@ -53,11 +53,11 @@ Highcharts.chart('container', {
     },
 
     series: [{
-        name: "Cases : Global",
+        name: "Cases : India",
         data: datas['cases']
     },
     {
-        name: "Deaths : Global",
+        name: "Deaths : India",
         data: datas['deaths']
     }
     ],
